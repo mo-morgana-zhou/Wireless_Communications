@@ -1,6 +1,5 @@
 %% Exponential Fading, Noise, 𝛼 = 4
 % Simulation parameters
-service_provider_index = 1;
 tx_power = 1; % transmitted power
 mu = 1;
 sigma2 = 1e-7; % sigma2: noise power
@@ -45,7 +44,7 @@ end
 coverage_prob = @(T) sum(SINR_values>T) / SimulationTimes;
 
 % Threshold values
-T = logspace(-1, 1, 10000);
+T = logspace(-10, 10, 10000);
 
 % Calculate coverage probabilities
 coverage_prob_values = arrayfun(@(x) coverage_prob(x), T);
@@ -78,5 +77,3 @@ xlabel('Threshold');
 ylabel('Coverage Probability');
 title('Coverage Probability vs Threshold');
 legend('Real World Simulation', 'Function Calculation');
-
-
